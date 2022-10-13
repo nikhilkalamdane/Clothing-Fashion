@@ -7,7 +7,7 @@ const addCartItem = (cartItems, productToAdd) => {
   );
 
   if (existingCartItem) {
-    return cartItems.map((cartItem) =>
+    return cartItems.map((cartItem) => 
       cartItem.id == productToAdd.id
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
         : cartItem
@@ -47,6 +47,11 @@ export const addItemToCart = (cartItems, productToAdd) => {
 
 export const removeItemFromCart = (cartItems, cartItemToRemove) => {
   const newCartItems = removeCartItem(cartItems, cartItemToRemove);
+  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
+};
+
+export const removeAllItemFromCart = () => {
+  const newCartItems = [];
   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
 

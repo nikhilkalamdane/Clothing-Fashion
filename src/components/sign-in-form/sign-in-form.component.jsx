@@ -1,16 +1,15 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import {
-  signInWithGooglePopup,
-  signInAuthUsersWithEmailAndPassword,
-} from "../../utils/firebase/firebase.utils";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import FormInput from "../form-input/form-input.component";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import {
   googleSignInStart,
   emailSignInStart,
 } from "../../store/user/user.action";
 import "./sign-in-form.styles.scss";
+import { useEffect } from "react";
 
 const defaultFormFields = {
   email: "",
@@ -19,16 +18,28 @@ const defaultFormFields = {
 
 const SignInForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+
+  const currentUser = useSelector(selectCurrentUser);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
+  useEffect(() => {
+    if(currentUser){
+      navigate("/shop");
+    }
+  },[currentUser]);
+
+
   const signInWithGoogle = async () => {
     dispatch(googleSignInStart());
+    
   };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
 

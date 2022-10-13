@@ -18,7 +18,6 @@ const CartDropdown = () => {
   };
   return (
     <CartDropdownContainer>
-      {console.log(cartItems.length)}
       <CartItems>
         {cartItems.length ? (
           cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
