@@ -37,7 +37,7 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     dispatch(googleSignInStart());
-    
+    console.log("Google");
   };
   
   const handleSubmit = async (event) => {
