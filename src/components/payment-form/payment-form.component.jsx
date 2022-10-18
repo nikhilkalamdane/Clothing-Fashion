@@ -75,6 +75,7 @@ const PaymentForm = () => {
           Pay now
         </PaymentButton>
       </FormContainer>
+      
     </PaymentFormContainer>
   );
 };

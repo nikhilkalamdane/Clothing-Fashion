@@ -37,6 +37,7 @@ const Checkout = () => {
       })}
       <span className="total">Total: {cartTotal}/-</span>
       <PaymentForm />
+      <h4>[Card Details: Number - 4000 0035 6000 0008 | cvv - any 3 digit | date - any future date]</h4>
     </div>
   );
 };

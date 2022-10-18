@@ -4,7 +4,7 @@ import { CATEGORIES_ACTION_TYPES } from "./category.types";
 export const fetchCategoriesStart = () =>
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START);
 
-export const fetchCategoriesSuccess = (categoriesArray) =>
+export const fetchCategoriesSuccess = (categoriesArray) => 
   createAction(
     CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS,
     categoriesArray

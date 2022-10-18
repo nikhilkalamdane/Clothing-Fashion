@@ -17,6 +17,7 @@ const ProductCard = ({ product }) => {
 
   const addProductToCart = () => {
     if(currentUser == null){
+      alert("Please sign in tp proceed...");
       navigate("/auth");
     }else{
       dispatch(addItemToCart(cartItems, product));
