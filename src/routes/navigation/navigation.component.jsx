@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
-import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 import mainLogo from'../../assets/clothingFashion.png';
 import { useNavigate } from "react-router-dom";
 import { selectCurrentUser } from "../../store/user/user.selector";

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
@@ -12,8 +13,8 @@ const defaultFormFields = {
   password: "",
   confirmPassword: "",
 };
-
-const SignUpForm = () => {
+ 
+const SignUpForm = ({handleUserStatus, userStatus}) => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
   const dispatch = useDispatch();
@@ -21,6 +22,8 @@ const SignUpForm = () => {
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
+
+ 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -55,8 +58,7 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-container">
-      <h2>Don't have an account</h2>
-      <span>Sign Up with your email and password</span>
+     
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Display Name"
@@ -95,6 +97,10 @@ const SignUpForm = () => {
         />
 
         <Button type="submit">Sign Up</Button>
+        <h3>Already have an account</h3>
+        <span onClick={handleUserStatus} style={{cursor: 'pointer'}}>
+            <u>Log In with your email and password</u>
+        </span>
       </form>
     </div>
   );

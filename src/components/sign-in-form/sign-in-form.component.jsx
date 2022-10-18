@@ -10,13 +10,14 @@ import {
 } from "../../store/user/user.action";
 import "./sign-in-form.styles.scss";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const defaultFormFields = {
   email: "",
   password: "",
 };
 
-const SignInForm = () => {
+const SignInForm = ({handleUserStatus, userStatus}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formFields, setFormFields] = useState(defaultFormFields);
@@ -27,7 +28,7 @@ const SignInForm = () => {
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
-
+ 
   useEffect(() => {
     if(currentUser){
       navigate("/shop");
@@ -37,7 +38,6 @@ const SignInForm = () => {
 
   const signInWithGoogle = async () => {
     dispatch(googleSignInStart());
-    console.log("Google");
   };
   
   const handleSubmit = async (event) => {
@@ -67,8 +67,7 @@ const SignInForm = () => {
 
   return (
     <div className="sign-up-container">
-      <h2>Already have an account</h2>
-      <span>Sign In with your email and password</span>
+    
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Email"
@@ -97,6 +96,13 @@ const SignInForm = () => {
           >
             Sign In with Google
           </Button>
+        </div>
+
+        <div>
+          <h3>Don't have an account</h3>
+          <span onClick={handleUserStatus} style={{cursor: 'pointer'}}>
+              <u>Create account with your email and password</u>
+          </span>
         </div>
       </form>
     </div>
