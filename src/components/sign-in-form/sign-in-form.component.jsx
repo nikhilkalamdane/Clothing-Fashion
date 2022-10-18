@@ -28,6 +28,12 @@ const SignInForm = () => {
     setFormFields(defaultFormFields);
   };
 
+  const signInWithGoogle = async () => {
+    console.log("Google1");
+    dispatch(googleSignInStart());
+    console.log("Google");
+  };
+
   useEffect(() => {
     if(currentUser){
       navigate("/shop");
@@ -35,10 +41,7 @@ const SignInForm = () => {
   },[currentUser]);
 
 
-  const signInWithGoogle = async () => {
-    dispatch(googleSignInStart());
-    console.log("Google");
-  };
+  
   
   const handleSubmit = async (event) => {
     event.preventDefault();
