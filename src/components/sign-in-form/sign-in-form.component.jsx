@@ -34,11 +34,11 @@ const SignInForm = () => {
     console.log("Google");
   };
 
-  useEffect(() => {
-    if(currentUser){
-      navigate("/shop");
-    }
-  },[currentUser]);
+  // useEffect(() => {
+  //   if(currentUser){
+  //     navigate("/shop");
+  //   }
+  // },[currentUser]);
 
 
   
