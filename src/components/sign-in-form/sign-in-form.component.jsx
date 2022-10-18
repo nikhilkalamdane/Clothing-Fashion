@@ -28,20 +28,17 @@ const SignInForm = () => {
     setFormFields(defaultFormFields);
   };
 
+  useEffect(() => {
+    if(currentUser){
+      navigate("/shop");
+    }
+  },[currentUser]);
+
+
   const signInWithGoogle = async () => {
-    console.log("Google1");
     dispatch(googleSignInStart());
     console.log("Google");
   };
-
-  // useEffect(() => {
-  //   if(currentUser){
-  //     navigate("/shop");
-  //   }
-  // },[currentUser]);
-
-
-  
   
   const handleSubmit = async (event) => {
     event.preventDefault();
